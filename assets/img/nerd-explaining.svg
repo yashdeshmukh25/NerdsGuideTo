@@ -1,0 +1,62 @@
+<svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="160" cy="350" rx="100" ry="10" fill="#3A2417" opacity="0.08"/>
+
+  <!-- body -->
+  <path d="M70 360V270c0-36 22-60 56-66h68c34 6 56 30 56 66v90z" fill="#E07A44"/>
+  <!-- collar -->
+  <path d="M140 206l20 24 20-24 13 9-17 28h-32l-17-28z" fill="#FBF1E1"/>
+  <!-- bow tie -->
+  <path d="M152 224l-13 7v9l13 7v-7l-7-4 7-4z" fill="#2C7561"/>
+  <path d="M168 224l13 7v9l-13 7v-7l7-4-7-4z" fill="#3F9C82"/>
+  <circle cx="160" cy="231" r="3.6" fill="#2C7561"/>
+
+  <!-- neck -->
+  <rect x="146" y="182" width="28" height="32" rx="10" fill="#E8B98A"/>
+
+  <!-- pointing arm (raised, one finger extended) -->
+  <path d="M214 244c26-2 46-18 56-42l16 6c-12 30-36 50-68 54z" fill="#C05A2C"/>
+  <g transform="translate(282,196)">
+    <circle r="14" fill="#E8B98A"/>
+    <rect x="6" y="-16" width="7" height="22" rx="3.5" fill="#E8B98A"/>
+  </g>
+
+  <!-- other arm holding book -->
+  <path d="M104 244c-24-2-42-16-50-38l-16 5c8 28 30 46 60 50z" fill="#E07A44"/>
+  <g transform="translate(48,204)">
+    <circle r="13" fill="#E8B98A"/>
+    <rect x="-6" y="-2" width="34" height="24" rx="3" fill="#FBF1E1" stroke="#3A2417" stroke-width="2.5"/>
+    <line x1="11" y1="-2" x2="11" y2="22" stroke="#E07A44" stroke-width="2"/>
+  </g>
+
+  <!-- head -->
+  <circle cx="160" cy="130" r="58" fill="#E8B98A"/>
+  <circle cx="104" cy="132" r="8" fill="#E8B98A"/>
+  <circle cx="216" cy="132" r="8" fill="#E8B98A"/>
+
+  <!-- hair: neat side part -->
+  <path d="M102 112c0-38 26-60 58-60s58 22 58 60c-10-8-14-18-16-28-10 10-28 15-44 13-8 9-22 11-34 7 0 6-2 9-6 13-3-2-6 0-8 3-4-3-6-5-8-8z" fill="#2B1B12"/>
+
+  <!-- glasses -->
+  <g stroke="#2B1B12" stroke-width="3.6" fill="#FFFFFF" fill-opacity="0.35">
+    <rect x="114" y="120" width="36" height="28" rx="9"/>
+    <rect x="170" y="120" width="36" height="28" rx="9"/>
+    <line x1="150" y1="132" x2="170" y2="132"/>
+    <line x1="110" y1="130" x2="100" y2="126"/>
+    <line x1="210" y1="130" x2="220" y2="126"/>
+  </g>
+  <circle cx="132" cy="135" r="3.6" fill="#2B1B12"/>
+  <circle cx="188" cy="135" r="3.6" fill="#2B1B12"/>
+
+  <!-- excited eyebrows -->
+  <path d="M116 112c8-7 20-7 28-2" stroke="#2B1B12" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+  <path d="M176 110c8-5 20-5 28 3" stroke="#2B1B12" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+
+  <!-- open talking mouth -->
+  <path d="M140 168c6 12 34 12 40 0 -4 10-36 10-40 0z" fill="#8A3A2A"/>
+  <path d="M140 168c6-8 34-8 40 0" stroke="#2B1B12" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- speech tail hint (small idea spark near hand) -->
+  <g transform="translate(282,150)" opacity="0.9">
+    <path d="M0 10l4-10 4 10-4-4z" fill="#E7A93F"/>
+  </g>
+</svg>
