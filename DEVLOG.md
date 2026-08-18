@@ -57,6 +57,22 @@ Your old GitHub Pages link now shows a stale, broken version of the old static s
 
 ---
 
+## Day 2 (continued) — 2026-08-18 — New white + blue-glow theme, animated title, redesigned nav
+
+**The ask:** switch the whole site's background to white, add a soft blue glow that follows the mouse around, drop the boxed header in favor of just the site name top-left with a menu top-right, and open the homepage with a big elegant animated title instead of the old headline/button/mascot combo.
+
+**What changed and why:**
+
+- **White background, everywhere.** The old warm cream/tan tones (used for section stripes, card fills, and the dark-brown footer) are gone — page background, cards, and footer are all white now, with a soft neutral gray for borders instead of the old tan. This wasn't just a color swap: the new cursor glow needs actual open white space to be visible against, so simplifying the backgrounds down to one consistent white was part of making the glow effect work at all.
+- **The cursor glow.** A large, soft blue circle now follows your mouse around the page, sitting behind everything (so it never blocks clicks) and easing smoothly toward the cursor rather than snapping instantly to it — that little bit of "lag" is what makes it feel alive instead of just glued to the pointer.
+- **New top bar, used on every page.** The old boxed header (with a border and background) is gone. In its place: just the site name, "Nerd's Guide To," floating top-left, and a small hamburger-style menu button top-right that opens a dropdown with Home and Coffee 101 (easy to add more guides to later). It's the same on every page now, instead of the homepage and guide pages having slightly different headers.
+- **Animated homepage title.** The old homepage opened with a headline, a paragraph, a button, and the nerd mascot illustration. That's been replaced with something more like a title card: "Nerd's Guide To" written out in an elegant script font, animating in one letter at a time — but only once the page (and its fonts) have actually finished loading, so it never starts before it can look right. Once the last letter lands, a simple tagline fades in underneath: "Pick new rabbit holes to fall into." The font you asked for, "Angelleta," doesn't appear to be a published font available online, so a close, similarly elegant cursive font called **Great Vibes** was used instead — easy to swap later if you find the exact font you meant.
+- **The animated mascot lost its homepage spot.** Since the new homepage opening is typography-led rather than illustration-led, the little floating nerd-with-coffee-mug animation from the old hero isn't used on the homepage anymore. Nothing was deleted from history — it's recoverable from an earlier checkpoint if you'd like it back somewhere (like the Coffee guide page).
+
+**A note on how this got checked:** normally each round of changes gets a real look in a browser before being called done. This time, the visual preview tool wasn't displaying on this end, so this round shipped based on thorough structural checks (colors, fonts, layout math, menu behavior, mobile sizing all verified in code) rather than an actual look at it — worth double-checking this one yourself and flagging anything that looks off.
+
+---
+
 ## Plain-language glossary
 
 A few terms that'll keep coming up in this log or in conversation:
