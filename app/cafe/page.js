@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Comic from "@/components/Comic";
@@ -28,8 +27,6 @@ export const metadata = {
 export default function CafePage() {
   return (
     <>
-      <Header variant="cafe" />
-
       <main>
         {/* HERO */}
         <section className="cafe-hero bg-dots">
