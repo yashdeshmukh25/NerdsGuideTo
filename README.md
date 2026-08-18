@@ -4,6 +4,8 @@ A growing compendium of deep-dive guides for the things worth geeking out about 
 
 **Live so far:** Volume 01 — [Coffee 101](/cafe)
 
+**New here or non-technical?** Read [DEVLOG.md](DEVLOG.md) — a plain-language history of what's been built, in what order, and why.
+
 ## How this project is put together
 
 ```
