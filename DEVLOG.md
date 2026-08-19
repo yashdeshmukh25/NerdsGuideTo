@@ -73,6 +73,20 @@ Your old GitHub Pages link now shows a stale, broken version of the old static s
 
 ---
 
+## Day 2 (continued) — 2026-08-19 — True handwriting animation for the title
+
+**The ask:** the letter-by-letter fade-in from the previous round wasn't what was wanted — the request was for the title to look like it's genuinely being handwritten with one continuous pen stroke, not letters popping/fading in one at a time (a "typewriter effect").
+
+**Why the previous version fell short:** animating whole letters fading upward one after another is a common trick, but it doesn't look like handwriting — real handwriting is a single moving line tracing out the actual shape of each letter. To do that properly, the animation needs to know the real outline of every letter's strokes, not just show/hide whole characters.
+
+**What was built instead:** the actual letter-shapes of the word "Nerd's Guide To," as drawn by the Great Vibes script font, were extracted directly from the font file itself (a small one-time script, `scripts/generate-title-path.js`, using a library called `opentype.js` that can read a font file's internal letter-outline data) and flattened into a single continuous outline, ordered left to right the same way a pen would move across the page. That outline is saved as data (`lib/titlePath.js`) and drawn on the homepage using a standard web technique for "draw-on" effects: the outline starts completely hidden, then is gradually revealed along its length until the whole word is traced, and only once the tracing finishes does it fill in solid, like ink soaking into the outline. This is genuinely animating the pen strokes, not the letters as blocks — closer to what was actually asked for.
+
+A nice side effect: because the drawing no longer depends on the script font being loaded and rendered live in the browser (the shape is already captured as data), the site no longer needs to download that font at all — one less thing to load.
+
+Also added: if someone's device is set to reduce motion (an accessibility setting some people use to avoid animation-related discomfort), the title just appears instantly instead of animating — a small courtesy that costs little to include.
+
+---
+
 ## Plain-language glossary
 
 A few terms that'll keep coming up in this log or in conversation:
