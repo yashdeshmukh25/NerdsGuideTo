@@ -1,0 +1,41 @@
+<svg viewBox="0 0 280 300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- lamp -->
+  <path d="M150,42 L150,20" />
+  <path d="M137,20 L163,20 L156,7 L144,7 Z" />
+
+  <!-- shelf frame -->
+  <rect x="60" y="42" width="160" height="240" />
+  <path d="M60,104 L220,104" />
+  <path d="M60,166 L220,166" />
+  <path d="M60,226 L220,226" />
+
+  <!-- books, shelf 1 -->
+  <rect x="70" y="58" width="11" height="46" />
+  <rect x="86" y="50" width="9" height="54" />
+  <rect x="100" y="64" width="15" height="40" />
+  <rect x="120" y="54" width="10" height="50" />
+  <rect x="150" y="60" width="13" height="44" />
+  <rect x="168" y="52" width="9" height="52" />
+  <rect x="184" y="62" width="12" height="42" />
+
+  <!-- books, shelf 2 -->
+  <rect x="70" y="122" width="10" height="44" />
+  <rect x="84" y="114" width="9" height="52" />
+  <rect x="98" y="128" width="14" height="38" />
+  <rect x="130" y="118" width="11" height="48" />
+  <rect x="146" y="126" width="9" height="40" />
+  <rect x="166" y="116" width="13" height="50" />
+  <rect x="188" y="130" width="10" height="36" />
+
+  <!-- books, shelf 3 -->
+  <rect x="70" y="184" width="12" height="42" />
+  <rect x="88" y="176" width="9" height="50" />
+  <rect x="104" y="188" width="15" height="38" />
+  <rect x="128" y="180" width="10" height="46" />
+  <rect x="152" y="186" width="13" height="40" />
+  <rect x="172" y="178" width="9" height="48" />
+  <rect x="190" y="190" width="11" height="36" />
+
+  <!-- ground line -->
+  <path d="M0,282 L280,282" />
+</svg>

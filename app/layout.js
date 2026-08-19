@@ -20,7 +20,7 @@ export const metadata = {
   description:
     "A growing compendium of deep-dive guides for the things worth geeking out about. First up: Coffee 101.",
   icons: {
-    icon: "/images/logo-mark.svg",
+    icon: "/images/brain-icon.svg",
   },
 };
 

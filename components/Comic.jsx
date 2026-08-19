@@ -11,7 +11,7 @@ export default function Comic({ figures }) {
           className={`comic-figure who-${f.who}`}
         >
           <div className="speech">{f.text}</div>
-          <Image src={f.img} alt={f.alt} width={190} height={210} />
+          <Image src={f.img} alt={f.alt} width={190} height={278} />
           <div className="comic-name">
             {f.who === "nerd" ? "The Nerd" : "The Caveman"}
           </div>

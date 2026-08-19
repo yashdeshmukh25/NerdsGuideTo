@@ -92,7 +92,8 @@ export default function HeroTitleReveal() {
           ease: [0.2, 0.65, 0.3, 0.9],
         }}
       >
-        Pick new rabbit holes to fall into
+        Pick new rabbit holes
+        <br className="mobile-break" /> to fall into
       </motion.p>
     </div>
   );

@@ -1,0 +1,19 @@
+<svg viewBox="0 0 280 300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- rock mound -->
+  <path d="M20,282 C10,282 8,262 20,252 C10,232 20,202 40,192 C35,162 60,132 90,127 C100,92 140,77 170,92 C190,72 220,87 225,117 C250,122 260,152 250,177 C265,192 262,222 245,232 C255,252 245,277 225,280 Z" />
+
+  <!-- cave mouth arch -->
+  <path d="M108,282 C106,240 111,198 140,193 C169,198 174,240 172,282 Z" />
+
+  <!-- crack details -->
+  <path d="M58,162 L74,146" />
+  <path d="M192,142 L207,157" />
+  <path d="M70,220 L82,232" />
+
+  <!-- small rocks at base -->
+  <ellipse cx="250" cy="271" rx="13" ry="8" />
+  <ellipse cx="15" cy="273" rx="10" ry="7" />
+
+  <!-- ground line -->
+  <path d="M0,282 L280,282" />
+</svg>

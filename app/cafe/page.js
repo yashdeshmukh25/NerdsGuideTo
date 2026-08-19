@@ -49,10 +49,10 @@ export default function CafePage() {
             </Reveal>
             <Reveal delay={0.15} className="cafe-hero-art">
               <Image
-                src="/images/hero-nerd.svg"
-                alt="An illustrated nerd holding a steaming mug of coffee triumphantly."
-                width={280}
-                height={330}
+                src="/images/geek-outline.svg"
+                alt="A line-art illustration of the geek character, holding a book."
+                width={260}
+                height={380}
               />
             </Reveal>
           </div>
@@ -69,8 +69,8 @@ export default function CafePage() {
               figures={[
                 {
                   who: "nerd",
-                  img: "/images/nerd-explaining.svg",
-                  alt: "A nerd character in glasses, mid-explanation, pointing upward.",
+                  img: "/images/geek-outline.svg",
+                  alt: "A line-art illustration of the geek character.",
                   text: (
                     <>
                       Coffee is a brewed drink made from roasted coffee{" "}
@@ -82,8 +82,8 @@ export default function CafePage() {
                 },
                 {
                   who: "caveman",
-                  img: "/images/caveman-confused.svg",
-                  alt: "A confused caveman character scratching his head.",
+                  img: "/images/caveman-outline.svg",
+                  alt: "A line-art illustration of the caveman character.",
                   text: "So we dry out a seed, burn it a little, smash it to bits, and pour hot water through it. On purpose.",
                 },
               ]}
@@ -306,14 +306,14 @@ export default function CafePage() {
               figures={[
                 {
                   who: "caveman",
-                  img: "/images/caveman-amazed.svg",
-                  alt: "An amazed caveman character holding a cup of coffee.",
+                  img: "/images/caveman-outline.svg",
+                  alt: "A line-art illustration of the caveman character.",
                   text: "Okay. Nerd stuff aside... this is really, really good.",
                 },
                 {
                   who: "nerd",
-                  img: "/images/nerd-explaining.svg",
-                  alt: "A nerd character smiling.",
+                  img: "/images/geek-outline.svg",
+                  alt: "A line-art illustration of the geek character.",
                   text: "That's the whole point. Now go make yourself a cup.",
                 },
               ]}

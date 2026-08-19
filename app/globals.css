@@ -22,7 +22,7 @@
   --mint: #3f9c82;
   --mint-dark: #2c7561;
   --gold: #e7a93f;
-  --glow-blue: 59, 130, 246;
+  --glow-blue: 37, 99, 235;
   --cream-shadow: 0 10px 30px -12px rgba(58, 36, 23, 0.12);
 
   /* -- Spacing / shape -- */
@@ -99,6 +99,12 @@ p {
   background-size: 22px 22px;
 }
 
+/* Faint square dot grid, used behind the whole homepage */
+.dot-grid {
+  background-image: radial-gradient(rgba(58, 36, 23, 0.09) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
 /* ============================== Buttons / badges ============================== */
 .btn {
   display: inline-flex;
@@ -164,9 +170,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
 }
 .site-bar .container {
   display: flex;
@@ -175,11 +179,17 @@ p {
   height: 78px;
 }
 .wordmark {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   font-family: var(--font-display), system-ui, sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--espresso);
   transition: color 0.2s ease;
+}
+.wordmark-icon {
+  flex-shrink: 0;
 }
 .wordmark:hover {
   color: var(--terracotta);
@@ -263,9 +273,8 @@ p {
 
 /* ============================== Footer ============================== */
 .site-footer {
-  background: var(--paper);
+  background: #e2e2e6;
   color: var(--espresso);
-  border-top: 1.5px solid var(--cream-line);
   padding: 56px 0 32px;
   margin-top: 100px;
   position: relative;
@@ -282,9 +291,29 @@ p {
   color: var(--espresso-70);
   font-size: 0.9rem;
 }
+.footer-social {
+  display: flex;
+  gap: 14px;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--espresso);
+  background: rgba(58, 36, 23, 0.08);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.footer-social a:hover {
+  background: var(--terracotta);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
 .footer-note {
   width: 100%;
-  border-top: 1px solid var(--cream-line);
+  border-top: 1px solid rgba(58, 36, 23, 0.14);
   margin-top: 32px;
   padding-top: 20px;
   font-size: 0.82rem;
@@ -310,13 +339,13 @@ p {
 
 /* ============================== Homepage: cursive title splash ============================== */
 .hero-splash {
-  min-height: min(76vh, 640px);
+  min-height: min(42vh, 380px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 24px 60px;
+  padding: 24px 24px 16px;
 }
 .hero-title-svg {
   width: min(90vw, 720px);
@@ -329,6 +358,46 @@ p {
   font-weight: 600;
   font-size: clamp(1rem, 2.4vw, 1.25rem);
   color: var(--espresso-70);
+}
+
+/* Shown only on small screens, wherever it's placed */
+.mobile-break {
+  display: none;
+}
+@media (max-width: 480px) {
+  .mobile-break {
+    display: inline;
+  }
+}
+
+/* ============================== Homepage duo graphic ============================== */
+.duo-graphic {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(8px, 5vw, 56px);
+  padding: 0 16px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.duo-side {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  min-width: 0;
+}
+.duo-prop {
+  height: clamp(80px, 14vh, 150px);
+  width: auto;
+  flex-shrink: 1;
+}
+.duo-character {
+  height: clamp(110px, 20vh, 200px);
+  width: auto;
+  flex-shrink: 1;
+}
+.duo-side:first-child {
+  justify-content: flex-end;
 }
 
 /* ============================== Topics grid ============================== */
@@ -416,16 +485,16 @@ p {
   position: fixed;
   top: 0;
   left: 0;
-  width: 900px;
-  height: 900px;
+  width: 740px;
+  height: 740px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(var(--glow-blue), 0.22) 0%,
-    rgba(var(--glow-blue), 0.12) 32%,
+    rgba(var(--glow-blue), 0.32) 0%,
+    rgba(var(--glow-blue), 0.18) 32%,
     rgba(var(--glow-blue), 0) 68%
   );
-  filter: blur(30px);
+  filter: blur(28px);
   pointer-events: none;
   z-index: -1;
   will-change: transform;
@@ -434,8 +503,8 @@ p {
 
 @media (max-width: 640px) {
   .cursor-glow {
-    width: 560px;
-    height: 560px;
+    width: 460px;
+    height: 460px;
   }
 }
 

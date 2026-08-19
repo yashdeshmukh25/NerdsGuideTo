@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import HeroTitleReveal from "@/components/HeroTitleReveal";
+import DuoGraphic from "@/components/DuoGraphic";
 import Reveal from "@/components/Reveal";
 import TopicCard from "@/components/TopicCard";
 
@@ -47,8 +48,9 @@ const topics = [
 export default function Home() {
   return (
     <>
-      <main>
+      <main className="dot-grid">
         <HeroTitleReveal />
+        <DuoGraphic />
 
         <section className="topics">
           <div className="container">
