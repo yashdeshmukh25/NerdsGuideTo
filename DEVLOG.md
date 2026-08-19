@@ -87,6 +87,29 @@ Also added: if someone's device is set to reduce motion (an accessibility settin
 
 ---
 
+## Day 2 (continued) — 2026-08-19 — Transparent header, new icon, and a caveman/geek duo illustration
+
+**The ask, in seven parts:** make the top bar see-through so the mouse glow shows through it; make that glow a bit darker, more visible, and smaller; add a faint grid of tiny dots across the homepage background; design a new "brain lighting up" icon to use as the site's favicon and next to the site name; make sure the homepage text wraps sensibly on phones; add a new illustration — a caveman by a cave and a geek by a library, facing each other, pure black outlines only, right under the homepage title, visible without scrolling — and reuse that same pair everywhere the site needs to depict them (starting with the Coffee 101 page); and finally, a solid grey footer with X (Twitter) and LinkedIn icon links.
+
+**What changed:**
+
+- **See-through top bar.** The site bar no longer has any background fill — it's just the logo, name, and menu button floating directly over whatever's behind them, including the glow.
+- **Glow tuning.** The blue got a shade darker, noticeably more visible (opacity turned up), and physically smaller (about 18% smaller on desktop, more on phones) so it reads as a focused light rather than a big soft wash.
+- **Dot grid.** A faint grid of small grey dots now sits behind the entire homepage, low-key enough to read as texture rather than pattern.
+- **New favicon: a brain, lighting up.** A simple line-drawn brain with a lightning bolt spark in the middle and a few small rays coming off the top — used as the browser tab icon and placed next to "Nerd's Guide To" in the top bar and the footer, replacing the old coffee-cup icon (which was themed for the Cafe guide specifically, and didn't really represent the whole site).
+- **Mobile text wrapping.** The homepage tagline now has a deliberate break point on small screens instead of relying on the browser to wrap wherever it runs out of room.
+- **The caveman-and-geek illustration.** This was the biggest piece of this round. Four new illustrations were hand-drawn from scratch, this time in a completely different visual style from anything on the site before: pure black outlines, no fill color at all (previous illustrations were flat, colored shapes) —
+  - a **caveman**, club over one shoulder, standing beside a simple **rock cave**
+  - a **geek**, holding a book, standing beside a simple **bookshelf/library**
+  
+  positioned side by side, facing each other, directly under the homepage's animated title — and the whole homepage was tightened up (less empty padding around the title) specifically so this illustration fits on screen without needing to scroll on a typical laptop or phone.
+- **One consistent pair, used everywhere.** As asked, this new caveman and geek aren't just a homepage decoration — they've replaced *every* earlier illustration of the two characters across the site, including the three spots on the Coffee 101 page that used to show the old colored versions (the page's opening illustration, and both comic-style back-and-forth moments). The old colored illustrations were removed since nothing uses them anymore. One thing worth knowing: this means the caveman and geek now look identical in every appearance (same pose, same expression) rather than having a different reaction drawn for each moment in the story — a deliberate simplification in exchange for one clean, consistent identity for the two characters, exactly as asked for.
+- **Footer.** Solid grey background now (previously white), plus two small circular icon buttons linking out to X and LinkedIn.
+
+**On verification this round:** the same visual-preview limitation from recent sessions was still in effect, so nothing here was confirmed with an actual screenshot. To compensate, this round leaned harder than usual on code-level checks that don't require seeing pixels — measuring exactly where elements land on the page (confirming the title + illustration genuinely fit within a typical screen's height before any scrolling), checking every new illustration's underlying shape data for errors, and confirming every image and page loads without errors. That's a meaningfully more rigorous check than "the code looks right," but it's still not the same as looking at it — please have a look when you can.
+
+---
+
 ## Plain-language glossary
 
 A few terms that'll keep coming up in this log or in conversation:
