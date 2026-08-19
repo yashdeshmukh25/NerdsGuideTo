@@ -2,24 +2,33 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { titlePath } from "@/lib/titlePath";
 
-const TITLE = "Nerd's Guide To";
-const WORDS = TITLE.split(" ");
-const TOTAL_LETTERS = TITLE.replace(/ /g, "").length;
-
-const letterVariants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0 },
-};
+const DRAW_DURATION = 2.6;
+const FILL_DURATION = 0.9;
 
 export default function HeroTitleReveal() {
   const [ready, setReady] = useState(false);
-  const [titleDone, setTitleDone] = useState(false);
+  const [drawn, setDrawn] = useState(false);
+  const [skipAnimation, setSkipAnimation] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
-    async function waitUntilFullyLoaded() {
+    async function run() {
+      const reduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (reduced) {
+        if (!cancelled) {
+          setSkipAnimation(true);
+          setReady(true);
+          setDrawn(true);
+        }
+        return;
+      }
+
       if (document.readyState !== "complete") {
         await new Promise((resolve) =>
           window.addEventListener("load", resolve, { once: true })
@@ -31,52 +40,57 @@ export default function HeroTitleReveal() {
       if (!cancelled) setReady(true);
     }
 
-    waitUntilFullyLoaded();
+    run();
     return () => {
       cancelled = true;
     };
   }, []);
 
-  let globalIndex = -1;
-
   return (
     <div className="hero-splash">
-      <motion.h1
-        className="hero-title-cursive"
-        initial="hidden"
-        animate={ready ? "visible" : "hidden"}
-        variants={{
-          visible: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
-        }}
-        aria-label={TITLE}
+      <svg
+        className="hero-title-svg"
+        viewBox={titlePath.viewBox}
+        role="img"
+        aria-label={titlePath.text}
       >
-        {WORDS.map((word, wi) => (
-          <span className="htc-word" key={wi} aria-hidden="true">
-            {word.split("").map((ch, ci) => {
-              globalIndex += 1;
-              const isLast = globalIndex === TOTAL_LETTERS - 1;
-              return (
-                <motion.span
-                  key={ci}
-                  variants={letterVariants}
-                  transition={{ duration: 0.55, ease: [0.2, 0.65, 0.3, 0.9] }}
-                  onAnimationComplete={
-                    isLast ? () => setTitleDone(true) : undefined
-                  }
-                >
-                  {ch}
-                </motion.span>
-              );
-            })}
-          </span>
-        ))}
-      </motion.h1>
+        <motion.path
+          d={titlePath.d}
+          fill="var(--espresso)"
+          stroke="var(--espresso)"
+          strokeWidth={4}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ pathLength: 0, fillOpacity: 0 }}
+          animate={
+            ready
+              ? { pathLength: 1, fillOpacity: drawn ? 1 : 0 }
+              : { pathLength: 0, fillOpacity: 0 }
+          }
+          transition={{
+            pathLength: {
+              duration: skipAnimation ? 0 : DRAW_DURATION,
+              ease: [0.65, 0, 0.35, 1],
+            },
+            fillOpacity: {
+              duration: skipAnimation ? 0 : FILL_DURATION,
+              ease: "easeOut",
+            },
+          }}
+          onAnimationComplete={(def) => {
+            if (def && def.pathLength === 1) setDrawn(true);
+          }}
+        />
+      </svg>
 
       <motion.p
         className="hero-title-tagline"
         initial={{ opacity: 0, y: 12 }}
-        animate={titleDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-        transition={{ duration: 0.6, ease: [0.2, 0.65, 0.3, 0.9] }}
+        animate={drawn ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+        transition={{
+          duration: skipAnimation ? 0 : 0.6,
+          ease: [0.2, 0.65, 0.3, 0.9],
+        }}
       >
         Pick new rabbit holes to fall into
       </motion.p>

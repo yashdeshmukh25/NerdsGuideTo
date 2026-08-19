@@ -318,20 +318,10 @@ p {
   text-align: center;
   padding: 40px 24px 60px;
 }
-.hero-title-cursive {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0 0.32em;
-  margin: 0;
-  font-family: var(--font-cursive), cursive;
-  font-weight: 400;
-  color: var(--espresso);
-  font-size: clamp(2.6rem, 8vw, 5.6rem);
-  line-height: 1.15;
-}
-.htc-word {
-  display: inline-flex;
+.hero-title-svg {
+  width: min(90vw, 720px);
+  height: auto;
+  overflow: visible;
 }
 .hero-title-tagline {
   margin: 20px 0 0;
