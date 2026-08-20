@@ -25,6 +25,20 @@
   --glow-blue: 37, 99, 235;
   --cream-shadow: 0 10px 30px -12px rgba(58, 36, 23, 0.12);
 
+  /* -- Semantic surface/text tokens --
+     Cafe-page-specific rules (bean cards, comic speech bubbles, timeline,
+     brew/drink cards, glossary, facts) read colors through these instead of
+     the raw palette above, so a wrapping .cafe-brown-zone can re-theme all
+     of them at once just by overriding the tokens. Default = light theme. */
+  --surface: var(--paper);
+  --surface-alt: var(--cream);
+  --surface-card: var(--paper);
+  --surface-card-alt: var(--cream);
+  --surface-line: var(--cream-line);
+  --text: var(--espresso);
+  --text-muted: var(--espresso-70);
+  --ink: var(--espresso);
+
   /* -- Spacing / shape -- */
   --radius-sm: 10px;
   --radius-md: 18px;
@@ -575,9 +589,11 @@ p {
 /* ---------- Section shell ---------- */
 .g-section {
   padding: 78px 0;
+  background: var(--surface);
+  color: var(--text);
 }
 .g-section.alt {
-  background: var(--cream);
+  background: var(--surface-alt);
 }
 .g-kicker {
   font-family: var(--font-display), system-ui, sans-serif;
@@ -608,8 +624,8 @@ p {
 }
 .speech {
   position: relative;
-  background: var(--paper);
-  border: 2.5px solid var(--espresso);
+  background: var(--surface-card);
+  border: 2.5px solid var(--ink);
   border-radius: var(--radius-md);
   padding: 16px 20px;
   margin-bottom: 14px;
@@ -617,7 +633,8 @@ p {
   font-weight: 500;
   font-size: 1.02rem;
   text-align: left;
-  box-shadow: 4px 4px 0 var(--espresso);
+  color: var(--espresso);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 .speech::after {
   content: "";
@@ -625,11 +642,11 @@ p {
   bottom: -16px;
   width: 22px;
   height: 22px;
-  background: var(--paper);
-  border-right: 2.5px solid var(--espresso);
-  border-bottom: 2.5px solid var(--espresso);
+  background: var(--surface-card);
+  border-right: 2.5px solid var(--ink);
+  border-bottom: 2.5px solid var(--ink);
   transform: rotate(45deg);
-  box-shadow: 3px 3px 0 -1px var(--espresso);
+  box-shadow: 3px 3px 0 -1px var(--ink);
 }
 .comic-figure.who-nerd .speech::after {
   left: 34px;
@@ -671,8 +688,8 @@ p {
   gap: 22px;
 }
 .bean-card {
-  background: var(--paper);
-  border: 2px solid var(--cream-line);
+  background: var(--surface-card);
+  border: 2px solid var(--surface-line);
   border-radius: var(--radius-md);
   padding: 26px;
 }
@@ -697,12 +714,12 @@ p {
 }
 .bean-card p {
   font-size: 0.92rem;
-  color: var(--espresso-70);
+  color: var(--text-muted);
   margin-bottom: 10px;
 }
 .bean-card .fun-fact {
   font-size: 0.84rem;
-  border-top: 1px dashed var(--cream-line);
+  border-top: 1px dashed var(--surface-line);
   padding-top: 10px;
   color: var(--coffee);
 }
@@ -718,8 +735,8 @@ p {
   counter-reset: step;
 }
 .timeline-step {
-  background: var(--paper);
-  border: 2px solid var(--cream-line);
+  background: var(--surface-card);
+  border: 2px solid var(--surface-line);
   border-radius: var(--radius-sm);
   padding: 18px 14px;
   text-align: center;
@@ -746,7 +763,7 @@ p {
 }
 .timeline-step p {
   font-size: 0.8rem;
-  color: var(--espresso-70);
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -791,6 +808,15 @@ p {
 .process-honey {
   background: linear-gradient(155deg, #e7a93f, #c4842b);
 }
+.process-ferment {
+  background: linear-gradient(155deg, #e8a33d, #c9861f);
+}
+.process-distill {
+  background: linear-gradient(155deg, #8a5a34, #5c3a26);
+}
+.process-age {
+  background: linear-gradient(155deg, #7b2d42, #5a1f30);
+}
 
 /* ---------- Roast gradient ---------- */
 .roast-bar {
@@ -799,7 +825,7 @@ p {
   overflow: hidden;
   height: 22px;
   margin: 40px 0 18px;
-  box-shadow: inset 0 0 0 2px var(--espresso);
+  box-shadow: inset 0 0 0 2px var(--ink);
 }
 .roast-bar span {
   flex: 1;
@@ -819,7 +845,7 @@ p {
 }
 .roast-labels p {
   font-size: 0.78rem;
-  color: var(--espresso-70);
+  color: var(--text-muted);
   margin: 0;
 }
 .roast-swatch {
@@ -827,7 +853,7 @@ p {
   height: 26px;
   border-radius: 50%;
   margin: 0 auto 8px;
-  border: 2px solid var(--espresso);
+  border: 2px solid var(--ink);
 }
 
 @media (max-width: 760px) {
@@ -848,7 +874,7 @@ p {
   text-align: center;
 }
 .grind-dot {
-  background: var(--espresso);
+  background: var(--ink);
   border-radius: 50%;
   margin: 0 auto 12px;
 }
@@ -859,7 +885,7 @@ p {
 }
 .grind-col p {
   font-size: 0.72rem;
-  color: var(--espresso-70);
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -877,8 +903,8 @@ p {
   gap: 22px;
 }
 .brew-card {
-  background: var(--cream);
-  border: 2px solid var(--cream-line);
+  background: var(--surface-card-alt);
+  border: 2px solid var(--surface-line);
   border-radius: var(--radius-lg);
   padding: 26px;
 }
@@ -909,7 +935,7 @@ p {
 }
 .brew-card p {
   font-size: 0.9rem;
-  color: var(--espresso-70);
+  color: var(--text-muted);
 }
 
 /* ---------- Drink ratio cards ---------- */
@@ -919,8 +945,8 @@ p {
   gap: 22px;
 }
 .drink-card {
-  background: var(--paper);
-  border: 2px solid var(--cream-line);
+  background: var(--surface-card);
+  border: 2px solid var(--surface-line);
   border-radius: var(--radius-md);
   padding: 22px;
 }
@@ -930,7 +956,7 @@ p {
 }
 .drink-card .drink-sub {
   font-size: 0.82rem;
-  color: var(--espresso-70);
+  color: var(--text-muted);
   margin-bottom: 16px;
 }
 .ratio-bar {
@@ -938,7 +964,7 @@ p {
   height: 34px;
   border-radius: 8px;
   overflow: hidden;
-  border: 2px solid var(--espresso);
+  border: 2px solid var(--ink);
   margin-bottom: 12px;
 }
 .ratio-bar span {
@@ -975,7 +1001,7 @@ p {
   gap: 12px;
   flex-wrap: wrap;
   font-size: 0.74rem;
-  color: var(--espresso-70);
+  color: var(--text-muted);
 }
 .ratio-key span {
   display: inline-flex;
@@ -997,7 +1023,7 @@ p {
 }
 .gterm {
   padding: 18px 0;
-  border-bottom: 1px dashed var(--cream-line);
+  border-bottom: 1px dashed var(--surface-line);
 }
 .gterm dt {
   font-family: var(--font-display), system-ui, sans-serif;
@@ -1008,7 +1034,7 @@ p {
 .gterm dd {
   margin: 0;
   font-size: 0.9rem;
-  color: var(--espresso-70);
+  color: var(--text-muted);
 }
 
 .facts-strip {
@@ -1035,7 +1061,98 @@ p {
 .cafe-closing {
   text-align: center;
   padding: 90px 0 60px;
+  background: var(--surface);
+  color: var(--text);
 }
 .cafe-closing .comic {
   margin-bottom: 30px;
+}
+
+/* ---------- Coffee cup + spill scroll sequence ---------- */
+.spill-stage {
+  position: relative;
+  height: 240vh;
+  background: var(--paper);
+}
+.spill-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.spill-cup {
+  position: relative;
+  width: min(58vw, 320px);
+  z-index: 2;
+}
+.spill-cup-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.spill-cup-body-group {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.spill-flood {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border-radius: 50%;
+  background: #2b1b12;
+  z-index: 1;
+}
+.spill-scroll-cue {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--coffee);
+  z-index: 3;
+}
+.spill-scroll-cue .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  animation: bob 1.4s ease-in-out infinite;
+}
+
+/* ---------- Brown zone: everything from the spill onward ---------- */
+.cafe-brown-zone {
+  background: #2b1b12;
+  --surface: #2b1b12;
+  --surface-alt: #352215;
+  --surface-card: #3a2417;
+  --surface-card-alt: #43291a;
+  --surface-line: rgba(245, 236, 224, 0.16);
+  --text: #f5ece0;
+  --text-muted: rgba(245, 236, 224, 0.72);
+  --ink: #f5ece0;
+}
+.cafe-brown-zone .fact-card {
+  background: var(--surface-card-alt);
+  border: 1.5px solid var(--surface-line);
+}
+
+/* ---------- Coffee-emoji cursor (Cafe page only) ---------- */
+.cafe-cursor-page,
+.cafe-cursor-page * {
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="26">%E2%98%95</text></svg>')
+    4 28,
+    auto;
 }

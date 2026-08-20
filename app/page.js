@@ -1,8 +1,9 @@
 import Footer from "@/components/Footer";
-import HeroTitleReveal from "@/components/HeroTitleReveal";
+import HandwritingTitle from "@/components/HandwritingTitle";
 import DuoGraphic from "@/components/DuoGraphic";
 import Reveal from "@/components/Reveal";
 import TopicCard from "@/components/TopicCard";
+import { titlePath } from "@/lib/titlePath";
 
 const topics = [
   {
@@ -11,6 +12,14 @@ const topics = [
       "Beans, roasts, grinds, brew methods, and the whole family tree of espresso drinks — explained from scratch.",
     icon: "/images/icon-cafe.svg",
     href: "/cafe",
+    live: true,
+  },
+  {
+    title: "Alcohol 101",
+    description:
+      "Fermentation, distillation, ABV vs. proof, the major spirit families, and the classic cocktails worth knowing.",
+    icon: "/images/icon-alcohol.svg",
+    href: "/alcohol",
     live: true,
   },
   {
@@ -49,7 +58,15 @@ export default function Home() {
   return (
     <>
       <main className="dot-grid">
-        <HeroTitleReveal />
+        <HandwritingTitle
+          data={titlePath}
+          tagline={
+            <>
+              Pick new rabbit holes
+              <br className="mobile-break" /> to fall into
+            </>
+          }
+        />
         <DuoGraphic />
 
         <section className="topics">

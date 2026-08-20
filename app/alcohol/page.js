@@ -6,34 +6,33 @@ import Comic from "@/components/Comic";
 import Lift from "@/components/Lift";
 import RatioBar from "@/components/RatioBar";
 import HandwritingTitle from "@/components/HandwritingTitle";
-import CoffeeSpill from "@/components/CoffeeSpill";
-import { titlePath as cafeTitlePath } from "@/lib/cafeTitlePath";
+import { titlePath as alcoholTitlePath } from "@/lib/alcoholTitlePath";
 import {
-  beans,
+  families,
   journey,
   processes,
-  roasts,
-  grinds,
-  brewMethods,
-  drinks,
-  drinkKey,
+  strengths,
+  proofExamples,
+  spirits,
+  cocktails,
+  cocktailKey,
   glossary,
   facts,
-} from "@/lib/coffeeData";
+} from "@/lib/alcoholData";
 
 export const metadata = {
-  title: "Coffee 101 — Nerd's Guide To",
+  title: "Alcohol 101 — Nerd's Guide To",
   description:
-    "A friendly, illustrated field guide to coffee: beans, roasts, grinds, brew methods, and every espresso drink explained.",
+    "A friendly, illustrated introduction to alcohol: how it's made, how strong it is, the major families, and the world's classic cocktails.",
 };
 
-export default function CafePage() {
+export default function AlcoholPage() {
   return (
     <>
-      <main className="cafe-cursor-page">
+      <main>
         <HandwritingTitle
-          data={cafeTitlePath}
-          tagline="Beans, roasts, and the rest of the story"
+          data={alcoholTitlePath}
+          tagline="Fermentation, distillation, and everything after"
         />
 
         {/* HERO */}
@@ -41,15 +40,17 @@ export default function CafePage() {
           <div className="container">
             <Reveal>
               <div className="cafe-crumb">
-                <Link href="/">Guides</Link> / Cafe
+                <Link href="/">Guides</Link> / Alcohol
               </div>
-              <span className="hero-eyebrow">Volume 01</span>
-              <h1>Coffee 101: from cherry to cup.</h1>
+              <span className="hero-eyebrow">Volume 02</span>
+              <h1>Alcohol 101: from ferment to first sip.</h1>
               <p className="hero-lede">
                 Everything a curious beginner needs to actually understand
-                coffee — the beans, the roast, the grind, the brew method,
-                and the whole family tree of espresso drinks. Explained by a
-                nerd, to a caveman, so nobody feels dumb.
+                alcohol — how fermentation and distillation work, how strong
+                different drinks really are, the major families you&apos;ll meet
+                at any bar, and the handful of cocktails worth knowing by
+                heart. Explained by a nerd, to a caveman, so nobody feels
+                dumb.
               </p>
               <div className="scroll-cue">
                 <span className="dot" /> Scroll down, it gets nerdy
@@ -57,8 +58,8 @@ export default function CafePage() {
             </Reveal>
             <Reveal delay={0.15} className="cafe-hero-art">
               <Image
-                src="/images/geek-outline.svg"
-                alt="A line-art illustration of the geek character, holding a book."
+                src="/images/caveman-outline.svg"
+                alt="A line-art illustration of the caveman character, holding a mug."
                 width={260}
                 height={380}
               />
@@ -66,15 +67,12 @@ export default function CafePage() {
           </div>
         </section>
 
-        <CoffeeSpill />
-
-        <div className="cafe-brown-zone">
         {/* CHAPTER 1: INTRO COMIC */}
         <section className="g-section">
           <div className="container">
             <Reveal className="section-heading">
               <span className="g-kicker">Chapter 1</span>
-              <h2>Wait, what even is coffee?</h2>
+              <h2>Wait, what even is alcohol?</h2>
             </Reveal>
             <Comic
               figures={[
@@ -84,10 +82,10 @@ export default function CafePage() {
                   alt: "A line-art illustration of the geek character.",
                   text: (
                     <>
-                      Coffee is a brewed drink made from roasted coffee{" "}
-                      <em>seeds</em> — people call them &quot;beans,&quot; but
-                      they&apos;re actually the pit inside a small fruit
-                      called a coffee cherry.
+                      Alcohol — specifically ethanol — is what you get when
+                      yeast eats sugar. It&apos;s a natural byproduct of{" "}
+                      <em>fermentation</em>, a process humans have been
+                      hijacking on purpose for at least 9,000 years.
                     </>
                   ),
                 },
@@ -95,35 +93,35 @@ export default function CafePage() {
                   who: "caveman",
                   img: "/images/caveman-outline.svg",
                   alt: "A line-art illustration of the caveman character.",
-                  text: "So we dry out a seed, burn it a little, smash it to bits, and pour hot water through it. On purpose.",
+                  text: "So we let tiny bugs eat sugar, and drink their exhaust. Great. Love that for us.",
                 },
               ]}
             />
           </div>
         </section>
 
-        {/* CHAPTER 2: BEAN TYPES */}
+        {/* CHAPTER 2: FAMILIES */}
         <section className="g-section alt">
           <div className="container">
             <Reveal className="section-heading">
               <span className="g-kicker">Chapter 2</span>
-              <h2>Meet the four species</h2>
+              <h2>Meet the four families</h2>
               <p>
-                Every bag of coffee traces back to one of these four plant
-                species — and almost everything you drink is one of the
-                first two.
+                Almost every alcoholic drink on Earth traces back to one of
+                these four — and the difference between them comes down to
+                one extra step: distillation.
               </p>
             </Reveal>
             <div className="bean-grid">
-              {beans.map((bean, i) => (
-                <Reveal key={bean.name} delay={i * 0.08}>
+              {families.map((f, i) => (
+                <Reveal key={f.name} delay={i * 0.08}>
                   <Lift className="bean-card">
-                    <Image src={bean.img} alt={`An illustrated ${bean.name} coffee bean.`} width={64} height={40} />
-                    <span className="bean-share">{bean.share}</span>
-                    <h3>{bean.name}</h3>
-                    <p>{bean.desc}</p>
+                    <Image src={f.img} alt={`An icon representing ${f.name}.`} width={64} height={64} />
+                    <span className="bean-share">{f.share}</span>
+                    <h3>{f.name}</h3>
+                    <p>{f.desc}</p>
                     <p className="fun-fact">
-                      <b>Fun fact:</b> {bean.fact}
+                      <b>Fun fact:</b> {f.fact}
                     </p>
                   </Lift>
                 </Reveal>
@@ -132,13 +130,13 @@ export default function CafePage() {
           </div>
         </section>
 
-        {/* CHAPTER 3: BEAN TO CUP */}
+        {/* CHAPTER 3: FROM FIELD TO GLASS */}
         <section className="g-section">
           <div className="container">
             <Reveal className="section-heading">
               <span className="g-kicker">Chapter 3</span>
-              <h2>From cherry to cup</h2>
-              <p>Every bean goes on the same journey before it ever meets water.</p>
+              <h2>From field to glass</h2>
+              <p>Every drink follows some version of the same path.</p>
             </Reveal>
 
             <div className="timeline">
@@ -161,29 +159,29 @@ export default function CafePage() {
           </div>
         </section>
 
-        {/* CHAPTER 4: ROAST LEVELS */}
+        {/* CHAPTER 4: STRENGTH SCALE */}
         <section className="g-section alt">
           <div className="container">
             <Reveal className="section-heading">
               <span className="g-kicker">Chapter 4</span>
-              <h2>Roast levels, decoded</h2>
+              <h2>Proof and strength, decoded</h2>
               <p>
-                Same bean, wildly different flavor — it all depends on how
-                long and how hot it&apos;s roasted.
+                ABV (alcohol by volume) tells you how strong a drink actually
+                is — and it varies a lot more than most people realize.
               </p>
             </Reveal>
             <Reveal>
               <div className="roast-bar">
-                {roasts.map((r) => (
-                  <span key={r.name} style={{ background: r.color }} />
+                {strengths.map((s) => (
+                  <span key={s.name} style={{ background: s.color }} />
                 ))}
               </div>
               <div className="roast-labels">
-                {roasts.map((r) => (
-                  <div key={r.name}>
-                    <div className="roast-swatch" style={{ background: r.color }} />
-                    <h4>{r.name}</h4>
-                    <p>{r.desc}</p>
+                {strengths.map((s) => (
+                  <div key={s.name}>
+                    <div className="roast-swatch" style={{ background: s.color }} />
+                    <h4>{s.name}</h4>
+                    <p>{s.desc}</p>
                   </div>
                 ))}
               </div>
@@ -191,51 +189,51 @@ export default function CafePage() {
           </div>
         </section>
 
-        {/* CHAPTER 5: GRIND SIZE */}
+        {/* CHAPTER 5: STRENGTH AT A GLANCE */}
         <section className="g-section">
           <div className="container">
             <Reveal className="section-heading">
               <span className="g-kicker">Chapter 5</span>
-              <h2>Grind size matters more than you think</h2>
+              <h2>Strength at a glance</h2>
               <p>
-                The finer the grind, the faster water pulls flavor out of it
-                — so grind size and brew method have to match.
+                Proof is just ABV × 2 in the US — a bigger dot means a bigger
+                kick per sip.
               </p>
             </Reveal>
             <div className="grind-row">
-              {grinds.map((g, i) => (
-                <Reveal key={g.name} delay={i * 0.05} className="grind-col">
-                  <div className="grind-dot" style={{ width: g.size, height: g.size }} />
-                  <h5>{g.name}</h5>
-                  <p>{g.use}</p>
+              {proofExamples.map((p, i) => (
+                <Reveal key={p.name} delay={i * 0.05} className="grind-col">
+                  <div className="grind-dot" style={{ width: p.size, height: p.size }} />
+                  <h5>{p.name}</h5>
+                  <p>{p.use}</p>
                 </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CHAPTER 6: BREWING METHODS */}
+        {/* CHAPTER 6: SPIRITS */}
         <section className="g-section alt">
           <div className="container">
             <Reveal className="section-heading">
               <span className="g-kicker">Chapter 6</span>
-              <h2>Pick your brewing method</h2>
+              <h2>Pick your spirit</h2>
               <p>
-                Same beans, completely different cup — every method extracts
-                coffee a little differently.
+                Same basic idea — ferment, then distill — but the starting
+                ingredient changes everything about the result.
               </p>
             </Reveal>
             <div className="brew-grid">
-              {brewMethods.map((m, i) => (
-                <Reveal key={m.name} delay={i * 0.07}>
+              {spirits.map((s, i) => (
+                <Reveal key={s.name} delay={i * 0.07}>
                   <Lift className="brew-card" rotate={-0.4}>
-                    <Image src={m.img} alt={`Illustration of ${m.name}.`} width={60} height={60} />
-                    <h3>{m.name}</h3>
+                    <Image src={s.img} alt={`Illustration of ${s.name}.`} width={60} height={60} />
+                    <h3>{s.name}</h3>
                     <div className="brew-meta">
-                      <span>{m.grind}</span>
-                      <span>{m.time}</span>
+                      <span>{s.base}</span>
+                      <span>{s.abv}</span>
                     </div>
-                    <p>{m.desc}</p>
+                    <p>{s.desc}</p>
                   </Lift>
                 </Reveal>
               ))}
@@ -243,29 +241,28 @@ export default function CafePage() {
           </div>
         </section>
 
-        {/* CHAPTER 7: DRINK FAMILY TREE */}
+        {/* CHAPTER 7: COCKTAIL FAMILY TREE */}
         <section className="g-section">
           <div className="container">
             <Reveal className="section-heading">
               <span className="g-kicker">Chapter 7</span>
-              <h2>The espresso drink family tree</h2>
+              <h2>Six cocktails worth knowing</h2>
               <p>
-                Every drink on this list starts with the exact same shot of
-                espresso — the only thing that changes is what you add to
-                it. Ratios below are approximate; baristas will argue about
-                the exact numbers forever.
+                Every one of these is a classic for a reason. Ratios below
+                are approximate — bartenders will argue about the exact
+                numbers forever.
               </p>
             </Reveal>
             <div className="drink-grid">
-              {drinks.map((d, i) => (
-                <Reveal key={d.name} delay={i * 0.06} className="drink-card">
-                  <h3>{d.name}</h3>
-                  <div className="drink-sub">{d.sub}</div>
-                  <RatioBar segments={d.segments} />
+              {cocktails.map((c, i) => (
+                <Reveal key={c.name} delay={i * 0.06} className="drink-card">
+                  <h3>{c.name}</h3>
+                  <div className="drink-sub">{c.sub}</div>
+                  <RatioBar segments={c.segments} />
                   <div className="ratio-key">
-                    {drinkKey(d.segments).map((k) => (
+                    {cocktailKey(c.segments).map((k) => (
                       <span key={k.type}>
-                        <i style={{ background: k.color, border: k.type === "foam" ? "1px solid #E7D2A6" : "none" }} />
+                        <i style={{ background: k.color }} />
                         {k.label}
                       </span>
                     ))}
@@ -273,12 +270,6 @@ export default function CafePage() {
                 </Reveal>
               ))}
             </div>
-
-            <p style={{ textAlign: "center", marginTop: 34, color: "var(--espresso-70)", fontSize: ".92rem" }}>
-              Bonus round: an <b>Affogato</b> isn&apos;t really a ratio drink
-              — it&apos;s just a hot shot of espresso poured straight over a
-              scoop of vanilla ice cream. Equal parts coffee and dessert.
-            </p>
           </div>
         </section>
 
@@ -319,13 +310,13 @@ export default function CafePage() {
                   who: "caveman",
                   img: "/images/caveman-outline.svg",
                   alt: "A line-art illustration of the caveman character.",
-                  text: "Okay. Nerd stuff aside... this is really, really good.",
+                  text: "Okay. So it's just bug spit and heat. Somehow that explains a lot of my weekends.",
                 },
                 {
                   who: "nerd",
                   img: "/images/geek-outline.svg",
                   alt: "A line-art illustration of the geek character.",
-                  text: "That's the whole point. Now go make yourself a cup.",
+                  text: "Pretty much. Now go order something and impress the bartender.",
                 },
               ]}
             />
@@ -336,10 +327,9 @@ export default function CafePage() {
             </Reveal>
           </div>
         </section>
-        </div>
       </main>
 
-      <Footer note="Volume 01: Cafe. More volumes brewing." />
+      <Footer note="Volume 02: Alcohol. More volumes brewing." />
     </>
   );
 }

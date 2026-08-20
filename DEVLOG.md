@@ -7,6 +7,7 @@ Newest entries are at the bottom, so it reads top-to-bottom like a story.
 **Jump to:**
 - [Day 1 — First version, built as a simple website](#day-1--2026-08-17--first-version-built-as-a-simple-website)
 - [Day 2 — Rebuilt as a real web app, with animation](#day-2--2026-08-18--rebuilt-as-a-real-web-app-with-animation)
+- [Day 3 — Real handwriting fix, Cafe cup/spill, and a new Alcohol 101 guide](#day-3--2026-08-20--real-handwriting-fix-cafe-cupspill-and-a-new-alcohol-101-guide)
 - [Plain-language glossary](#plain-language-glossary)
 
 ---
@@ -107,6 +108,24 @@ Also added: if someone's device is set to reduce motion (an accessibility settin
 - **Footer.** Solid grey background now (previously white), plus two small circular icon buttons linking out to X and LinkedIn.
 
 **On verification this round:** the same visual-preview limitation from recent sessions was still in effect, so nothing here was confirmed with an actual screenshot. To compensate, this round leaned harder than usual on code-level checks that don't require seeing pixels — measuring exactly where elements land on the page (confirming the title + illustration genuinely fit within a typical screen's height before any scrolling), checking every new illustration's underlying shape data for errors, and confirming every image and page loads without errors. That's a meaningfully more rigorous check than "the code looks right," but it's still not the same as looking at it — please have a look when you can.
+
+---
+
+## Day 3 — 2026-08-20 — Real handwriting fix, Cafe cup/spill, and a new Alcohol 101 guide
+
+**The ask, in three parts:** the "handwriting" title animation still wasn't right — it needed to finish one letter before starting the next, and the thin traced outline needed to become one solid, thick stroke, like real pen ink. Then, bring that same title animation to the Coffee page as "Cafe 101," add an illustrated coffee cup below it that topples and spills as you scroll, permanently turning the rest of the page brown from that point on (with every section re-colored to still look good against it), and swap the mouse cursor to a coffee emoji on that page only. Finally, build a whole new guide — Alcohol 101 — using the same visual playbook as the Coffee page, covering the basics for someone brand new to the topic.
+
+**Why the animation still looked wrong:** the previous version traced every letter's outline as one single, uninterrupted pen path — which is actually why it looked like the letters were all blending together into one scribble instead of finishing one at a time. The fix was to treat each letter as its own separate drawing, so one letter's stroke has to fully finish before the next one starts (using the real per-letter shape data — the previous version had only ever captured the *whole word* as one connected outline, so this required regenerating that underlying data letter-by-letter, not just changing the animation). On top of that, the stroke itself was made much thicker — thick enough that tracing a letter's outline actually looks like solid ink filling in the shape, rather than a thin line sketching its edges.
+
+**A detour worth knowing about:** getting this right took an unusually long back-and-forth this session, because the tool used to preview the site live wasn't visibly open on your end. Browsers intentionally pause all animation for a tab that isn't actually being looked at (to save your computer's battery/CPU) — so every test kept showing the animation "frozen," which looked exactly like a bug, even though the underlying code was firing correctly every time. That got fully diagnosed and ruled out as a real problem, but it's the reason this round leaned on lower-level checks (reading the page's internal state directly, rather than watching it animate) instead of the usual "watch it happen in a browser" verification. **Please open the preview / visit the live site yourself once this is up, to confirm the animations actually look right** — that's the one thing that couldn't be double-checked from this end today.
+
+**What got built on the Coffee page:**
+- A "Cafe 101" title now opens the page, drawn with the same fixed handwriting animation as the homepage.
+- Below the existing intro, a new illustrated grey coffee cup (with coffee visible inside, seen from slightly above) sits in a scroll-driven sequence: as you scroll, the cup tips over, coffee floods out and covers the whole screen, and once it clears, the page's background has permanently switched to a warm brown for the rest of the article.
+- Every section after that point — bean cards, the roasting/brewing/drink chapters, the glossary, the closing comic — was re-themed to read clearly on brown instead of white, without changing any of the actual written content. This was done efficiently by introducing a small set of reusable "theme" variables (surface color, text color, card color, etc.) that the Coffee page's styling already reads from, so flipping them once at the point of the spill re-colors everything below it automatically, instead of hand-editing every section individually.
+- The mouse cursor turns into a coffee cup emoji anywhere on the Coffee page specifically (not the rest of the site).
+
+**What got built for Alcohol 101:** a full new guide page at `/alcohol`, using the exact same visual language as the Coffee page (the handwritten title, the nerd/caveman comic banter, the card grids, the glossary, the closing joke) but on the normal light theme — no cup-and-spill equivalent, by design (agreed on scope before building, to keep that effect a coffee-specific touch rather than diluting it). Content-wise it covers: the four main families (beer, wine, spirits, cider/mead), how fermentation and distillation actually work, a strength/proof scale so "40% ABV" and "80 proof" actually mean something, a walk through the major spirits (whiskey, vodka, rum, gin, tequila, brandy), six classic cocktails with their real ingredient ratios, and a glossary of bar terms. A handful of new small icons (beer mug, wine glass, cocktail glass, and bottle icons per spirit) were hand-drawn to match the site's existing icon style. It's now listed on the homepage as a second "ready to read" guide, right next to Coffee.
 
 ---
 

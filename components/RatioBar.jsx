@@ -16,7 +16,11 @@ export default function RatioBar({ segments }) {
       {segments.map((seg, i) => (
         <motion.span
           key={seg.type}
-          style={SEG_STYLE[seg.type]}
+          style={
+            seg.color
+              ? { background: seg.color, color: seg.textColor || "var(--paper)" }
+              : SEG_STYLE[seg.type]
+          }
           initial={{ width: "0%" }}
           whileInView={{ width: `${seg.pct}%` }}
           viewport={{ once: true, margin: "-40px" }}
